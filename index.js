@@ -5,7 +5,7 @@ var session = require("express-session");
 
 var user_route = require("./routes/user_route");
 var admin_route = require("./routes/admin_route")
-require("dotenv");
+require("dotenv").config();
 
 var app = express();
 
