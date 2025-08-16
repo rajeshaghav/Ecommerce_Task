@@ -2,10 +2,10 @@ var express = require("express");
 var bodyparser = require("body-parser");
 var upload = require("express-fileupload");
 var session = require("express-session");
-require("dotenv");
 
 var user_route = require("./routes/user_route");
 var admin_route = require("./routes/admin_route")
+require("dotenv");
 
 var app = express();
 
