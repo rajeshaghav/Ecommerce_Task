@@ -1,0 +1,40 @@
+<%-include("../navbar")%>
+ 
+<div class="container mt-4 shadow p-4">
+    <div class="row">
+        <div class="col-md-12 text-center mb-4">
+            <h3>Get Free Quote List By User </h3>
+        </div>
+        <div class="col-md-12 mb-4">
+            <table class="table table-stripped" border="1">
+                <th>Action</th>
+                <th>SrNo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Education</th>
+                <th>Special Note</th>
+              </tr>
+              
+              <% for(var i=0;i<get_free_quote.length;i++){%>
+                 <tr>
+                    <td>
+                          <a href="/admin/service/delete_get_free_quote/<%-get_free_quote[i].id%>" class="text-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td><%-get_free_quote[i].name%></td>
+                    <td><%-get_free_quote[i].email%></td>
+                    <td><%-get_free_quote[i].phone%></td>
+                    <td><%-get_free_quote[i].education%></td>
+                    <td><%-get_free_quote[i].special_note%></td>
+                 </tr> 
+              <%}%>
+
+               
+           
+          </table>
+        </div>
+    </div>
+</div>
+
+<%-include("../footer")%>

@@ -1,0 +1,31 @@
+<%-include("../navbar")%>
+    <form action="/admin/about/update_aboutourcompony" method="post" enctype="multipart/form-data">
+        <div class="container mt-4 bg-white shadow p-4">
+            <h3>Edit About Our Compony</h3>
+            <div class="row">
+                 <input type="hidden" name="id" value="<%= info[0].id %>">
+
+                <div class="col-md-4 mt-3">
+                    <input type="text" name="title" value="<%= info[0].title %>" class="form-control">
+                </div>
+
+                 <div class="col-md-2 mt-3">
+                    Upload Photo:
+                    <input type="file" name="photo" class="form-control"><img src="/<%= info[0].photo %>" width="100">
+                    
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <textarea name="subtitle" class="editor"><%= info[0].subtitle %></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-md-12 mt-3 text-center">
+                    <button class="btn btn-primary">Edit About Our Compony</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br><br><br>
+
+    <%-include("../footer")%>

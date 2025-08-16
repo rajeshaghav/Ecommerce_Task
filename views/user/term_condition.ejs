@@ -1,0 +1,18 @@
+
+<%-include("navbar")%>
+<section id="terms" class="terms-section py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-4">Terms & Conditions</h2>
+    <div class="terms-content">
+      <ol>
+        <% for(var i=0;i<terms.length;i++){ %>
+        <li>
+          <strong><%=terms[i].point_name%>:</strong><%-terms[i].description%>
+        </li>
+        <% } %>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<%-include("footer")%>

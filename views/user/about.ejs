@@ -1,0 +1,134 @@
+<%-include("navbar")%>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header py-5 mb-5">
+    <div class="container py-5 col-md-8">
+      <h1 class="display-3 text-white mb-3 animated slideInDown"><%-about_banner.title%></h1>
+      <nav aria-label="breadcrumb animated slideInDown">
+        <ol class="breadcrumb">
+          <h5 class="breadcrumb-item text-dark active"><%-about_banner.subtitle%></h5>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+
+  <section id="about-us" class="about-us-section py-5">
+    <div class="container">
+      <!-- Title & Intro -->
+      <div class="text-center mb-4">
+        <h2>About Our Company</h2>
+        <p class="lead">We’re committed to powering your future through sustainable solar solutions and exceptional
+          service.</p>
+      </div>
+
+
+      <style>
+        .row.align-items-center img {
+          width: 100%;
+          /* fill column width */
+          height: 500px;
+          /* adjust as needed */
+          object-fit: cover;
+          /* crops excess, maintains aspect ratio */
+          object-position: center;
+          display: block;
+          margin-top: 50px;
+          border-radius: 8px;
+          /* optional styling */
+        }
+      </style>
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+          <h3>
+            <%=about_compony[0].title%>
+          </h3>
+          <p><%-about_compony[0].subtitle%></p>
+
+        </div>
+        <div class="col-md-6">
+          <img src="/<%=about_compony[0].photo%>" alt="Team at solar office" class="img-fluid rounded">
+        </div>
+      </div>
+
+      <!-- Mission & Vision -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6 order-md-2">
+          <h3>
+            <%=about_compony[1].title%>
+          </h3>
+          <p>
+            <%-about_compony[1].subtitle%>
+          </p>
+        </div>
+        <div class="col-md-6 order-md-1">
+          <img src="/<%=about_compony[1].photo%>" alt="Mission and vision" class="img-fluid rounded">
+        </div>
+      </div>
+
+
+
+
+      <!-- Team Start -->
+      <div class="container-xxl py-5">
+        <div class="container">
+          <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h6 class="text-primary">Team Member</h6>
+            <h1 class="mb-4">Experienced Team Members</h1>
+          </div>
+          <style>
+            .team-item {
+              transition: transform 0.3s;
+            }
+
+            .team-item:hover {
+              transform: translateY(-5px);
+            }
+
+            .img-wrapper {
+              width: 100%;
+              height: 250px;
+              /* Adjust to desired height */
+              overflow: hidden;
+            }
+
+            .img-wrapper img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              /* Crops and fills container */
+              object-position: center;
+              /* Centers the focal point */
+              display: block;
+            }
+
+            .img-wrapper {
+              border-top-left-radius: .5rem;
+              border-top-right-radius: .5rem;
+            }
+          </style>
+          <div class="row g-4">
+            <%for(var i=0;i<team_member.length;i++){%>
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item rounded overflow-hidden shadow-sm bg-white">
+                  <div class="d-flex">
+                    <img class="img-fluid w-75" src="/<%-team_member[i].photo%>" alt="">
+                  </div>
+                  <div class="p-4">
+                    <h5><%-team_member[i].title%></h5>
+                    <span><%-team_member[i].subtitle%></span>
+                  </div>
+                </div>
+              </div>
+              <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Team End -->
+
+
+  </section>
+
+  <!-- Page Header End -->
+  <%-include("footer")%>

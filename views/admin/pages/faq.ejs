@@ -1,0 +1,59 @@
+<%-include("../navbar")%>
+
+    <form action="/admin/pages/save_faq" method="post" enctype="multipart/form-data">
+
+        <div class="container mt-4 bg-white shadow p-4">
+            <h3>FAQ</h3>
+
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    Enter Question:
+                    <textarea type="text" name="question" class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mt-3">
+                    Enter Answer:
+                    <textarea type="text" name="answer" class="form-control"></textarea>
+                </div>
+                <div class="col-md-12 mt-3 text-center ">
+                    <button class="btn btn-primary">Add Question</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="container mt-4   p-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>FAQ List</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-stripped" border="1">
+                    <th>Action</th>
+                    <th>SrNo</th>
+                    <th>Answer</th>
+                    <th>Question</th>
+                    </tr>
+
+                    <%for (var i=0;i<flist.length;i++){ %>
+                        <tr>
+                            <td>
+                                <a href="/admin/pages/edit_faq/<%-flist[i].id%>"><i
+                                        class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a href="/admin/pages/delete_faq/<%-flist[i].id%>" class="text-danger"><i
+                                        class="fas fa-trash"></i></a>
+                            </td>
+                            <td><%-i+1%></td>
+                            <td><%-flist[i].question%></td>
+                            <td><%-flist[i].answer%></td>
+                        </tr>
+                        <%}%>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+        <%-include("../footer")%>

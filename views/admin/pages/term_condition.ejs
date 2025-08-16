@@ -1,0 +1,55 @@
+<%-include("../navbar")%>
+
+<form action="/admin/pages/save_term_condition" method="post" enctype="multipart/form-data">
+
+    <div class="container mt-4 bg-white shadow p-4">
+    <h2>Term Condition</h2>
+        <div class="row">
+             <div class="col-md-6 mt-3"> 
+                Enter Point Name:
+                <input type="text" name="point_name" class="form-control">
+            </div>
+             <div class="col-md-6 mt-3"> 
+                Enter Description:
+                <textarea type="text" name="description" class="form-control"></textarea>
+             </div>
+             <div class="col-md-12 mt-3 text-center "> 
+                <button class="btn btn-primary">Add Term & Condition</button>
+             </div>
+        </div>
+    </div>
+    </form>
+
+
+
+    <div class="container mt-4   p-4">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Term & Condition List</h3>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-stripped" border="1">
+                <th>Action</th>
+                <th>SrNo</th>
+                <th>Point Name</th>
+                <th>Description</th>
+              </tr>
+              
+            <%for (var i=0;i<tlist.length;i++){ %>
+                <tr>
+                    <td>
+                        <a href="/admin/pages/edit_term_condition/<%-tlist[i].id%>" ><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                        <a href="/admin/pages/delete_term_condition/<%-tlist[i].id%>" class="text-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td><%-tlist[i].point_name%></td>
+                    <td><%-tlist[i].description%></td>
+                </tr>
+            <%}%>    
+                 
+          </table>
+
+        </div>
+    </div>
+</div>
+<%-include("../footer")%>

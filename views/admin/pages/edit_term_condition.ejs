@@ -1,0 +1,34 @@
+<%-include("../navbar")%>
+
+    <form action="/admin/pages/update_term_condition" method="post" enctype="multipart/form-data">
+        <div class="container mt-4 bg-white shadow p-4">
+            <div class="container mt-4  ">
+                <h2>Edit Term & Condition</h2>
+                <div class="row">
+                    <!-- Hidden ID field -->
+                    <input type="hidden" name="id" value="<%- tdet[0].id %>">
+
+                    <!-- Point Name -->
+                    <div class="col-md-4 mt-3">
+                        Update Point Name:
+                        <input type="text" name="point_name" class="form-control" value="<%- tdet[0].point_name %>">
+                    </div>
+
+                    <!-- Description (using rich-text editor) -->
+                    <div class="col-md-12 mt-3">
+                        Update Description:
+                        <textarea name="description" class="editor form-control"
+                            rows="6"><%- tdet[0].description %></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-md-12 mt-3 text-center">
+                        <button class="btn btn-primary">Update Term &amp; Condition</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <%-include("../footer")%>

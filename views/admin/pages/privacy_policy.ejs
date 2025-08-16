@@ -1,0 +1,56 @@
+<%-include("../navbar")%>
+    <form action="/admin/pages/save_privacy_policy" method="post">
+        <div class="container mt-4 bg-white shadow p-4">
+            <h3>Privacy Policy</h3>
+
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    Enter Heading:
+                    <input type="text" name="heading" class="form-control">
+                </div>
+                <div class="col-md-12 mt-3">
+                    Enter Sub-title:
+                    <textarea type="text" name="subtitle" class="editor"></textarea>
+                </div>
+                <div class="col-md-12 mt-3 text-center ">
+                    <button class="btn btn-primary">Add Policy</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="container mt-4   p-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Privacy Policy List</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-stripped" border="1">
+                    <th>Action</th>
+                    <th>SrNo</th>
+                    <th>Heading</th>
+                    <th>Subtitle</th>
+                    </tr>
+
+                    <%for (var i=0;i<plist.length;i++){ %>
+                        <tr>
+                            <td>
+                                <a href="/admin/pages/edit_privacy_policy/<%-plist[i].id%>"><i
+                                        class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a href="/admin/pages/delete_privacy_policy/<%-plist[i].id%>" class="text-danger"><i
+                                        class="fas fa-trash"></i></a>
+                            </td>
+                            <td><%-i+1%></td>
+                            <td><%-plist[i].heading%></td>
+                            <td><%-plist[i].subtitle%></td>
+                        </tr>
+                        <%}%>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <%-include("../footer")%>

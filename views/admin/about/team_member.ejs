@@ -1,0 +1,60 @@
+<%-include("../navbar")%>
+<form action="/admin/about/save_team_member" method="post" enctype="multipart/form-data">
+
+    <div class="container mt-4 bg-white shadow p-4">
+    <h3>Add Team Member</h3>
+    
+        <div class="row">
+            <div class="col-md-4 mt-3"> 
+                Enter Title:
+                <input type="text" name="title" class="form-control">
+            </div> 
+            <div class="col-md-4 mt-3"> 
+                Enter Sub-Title:
+                <textarea type="text" name="subtitle"class="editor"></textarea>
+            </div><br> 
+            <div class="col-md-4 mt-3"> 
+                Enter Photo:
+                <input type="file" name="photo" class="form-control">
+            </div>
+             
+             <div class="col-md-12 mt-3 text-center "> 
+                <button class="btn btn-primary">Add Team-Member</button>
+             </div>
+        </div>
+    </div>
+    </form>
+
+
+
+    <!-- About our Compony list -->
+    <div class="container mt-4 shadow p-4">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Team Member </h3>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-stripped" border="1">
+                <th>Action</th>
+                <th>SrNo</th>
+                <th>Title</th>
+                <th>Sub-title</th>
+                <th>Photo</th>
+              </tr>
+            <%for (var i=0;i<tlist.length;i++){ %>
+                <tr>
+                    <td>
+                        <a href="/admin/about/edit_team_member/<%-tlist[i].id%>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                        <a href="/admin/about/delete_team_member/<%-tlist[i].id%>" class="text-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td><%-tlist[i].title%></td>
+                    <td><%-tlist[i].subtitle%></td>
+                    <td><img src="/<%=tlist[i].photo%>" width="100px"></td>
+                </tr>
+            <%}%>    
+          </table>
+        </div>
+    </div>
+</div>
+<%-include("../footer")%>

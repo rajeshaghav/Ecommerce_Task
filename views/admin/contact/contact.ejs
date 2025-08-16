@@ -1,0 +1,87 @@
+<%-include("../navbar")%>
+  
+<%if(clist.length<1) { %>
+    <form action="/admin/contact/save_contact" method="post" enctype="multipart/form-data">
+        <div class="container mt-4 bg-white shadow p-4">
+            <h3>Contact</h3>
+
+            <div class="row">
+                <div class="col-md-4 mt-3">
+                    Enter Phone:
+                    <input type="number" name="phone" class="form-control">
+                </div>
+                <div class="col-md-4 mt-3">
+                    Enter Email:
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <div class="col-md-4 mt-3">
+                    Enter Office Hour:
+                    <input type="text" name="office_hours" class="form-control">
+                </div>
+                <div class="col-md-10 mt-3">
+                    Enter Address:
+                    <textarea type="text" name="address" class="editor"></textarea>
+                </div>
+                <div class="col-md-4 mt-3">
+                    Enter location:
+                    <input type="text" name="location" class="form-control">
+                </div>
+                <div class="col-md-4 mt-3">
+                    Enter Facebook:
+                    <input type="text" name="facebook" class="form-control">
+                </div>
+                <div class="col-md-4 mt-3">
+                    Enter Twitter:
+                    <input type="text" name="twitter" class="form-control">
+                </div><br><br>
+                <div class="col-md-12 mt-4  text-center ">
+                    <button class="btn btn-primary">Save About Section</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+ 
+   <%}%>
+    <div class="container mt-4 shadow p-4">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Contact List</h3>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-stripped" border="1" width="100%">
+                    <th>Action</th>
+                    <th>SrNo</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>location</th>
+                    <th>Office Hour</th>
+                    <th>Facebook</th>
+                    <th>Twitter</th>
+                    </tr>
+
+                    <%for (var i=0;i<clist.length;i++){ %>
+                        <tr>
+                            <td>
+                                <a href="/admin/contact/edit_contact/<%-clist[i].id%>"><i
+                                        class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a href="/admin/contact/delete_contact/<%-clist[i].id%>" class="text-danger"><i
+                                        class="fas fa-trash"></i></a>
+                            </td>
+                            <td><%-i+1%></td>
+                            <td><%-clist[i].phone%></td>
+                            <td><%-clist[i].email%></td>
+                            <td><%-clist[i].address%></td>
+                            <td><%-clist[i].location%></td>
+                            <td><%-clist[i].office_hour%></td>
+                            <td><%-clist[i].facebook%></td>
+                            <td><%-clist[i].twitter%></td>
+                        </tr>
+                        <%}%>
+
+                </table>
+
+            </div>
+        </div>
+        <%-include("../footer")%>

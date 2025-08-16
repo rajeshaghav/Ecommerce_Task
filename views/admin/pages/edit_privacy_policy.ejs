@@ -1,0 +1,22 @@
+<%-include("../navbar")%>
+<form action="/admin/pages/update_privacy_policy" method="post">
+  <div class="container mt-4 bg-white shadow p-4">
+    <h3>Edit Privacy Policy</h3>
+    <div class="row">
+      <div class="col-md-6 mt-3">
+        <input type="hidden" name="id" value="<%= pdet[0].id %>">
+        Enter Heading:
+        <input type="text" name="heading" class="form-control" value="<%= pdet[0].heading %>">
+      </div>
+      <div class="col-md-6 mt-3">
+        Enter Sub-title:
+        <textarea name="subtitle" class="editor form-control"><%- pdet[0].subtitle %></textarea>
+      </div>
+      <div class="col-md-12 mt-3 text-center">
+        <button class="btn btn-primary">Update Policy</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%-include("../footer")%>

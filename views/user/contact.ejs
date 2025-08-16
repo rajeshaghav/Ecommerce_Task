@@ -1,0 +1,85 @@
+
+<%-include("navbar")%>
+<section id="contact-us" class="contact-us-section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Get in Touch</h2>
+    <p class="text-center mb-4">
+      We're here to answer your queries — expect a response within 24 hours.
+    </p>
+    <div class="row g-4">
+      <!-- Contact Info Panel -->
+      <div class="col-md-4">
+        <div class="bg-white p-4 rounded shadow-sm h-100">
+          <h5>Contact Details</h5>
+          <p><strong>Phone:</strong> <a href="tel:+919876543210">+91‑<%=con[0].phone%></a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@yourcompany.com"><%=con[0].email%></a></p>
+          <p><strong>Address:</strong><br><%-con[0].address%></p>
+          <p><strong>Office Hours:</strong><br><%=con[0].office_hour%></p>
+          <div class="mt-3">
+            <a href="<%=con[0].facebook%>" target="_blank" class="me-2">Facebook</a>
+            <a href="<%=con[0].twitter%>" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Panel -->
+      <div class="col-md-8">
+        <form id="contactForm" class="bg-white p-4 rounded shadow-sm needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="cName" class="form-label">Name *</label>
+              <input type="text" class="form-control" id="cName" name="name" required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="cEmail" class="form-label">Email *</label>
+              <input type="email" class="form-control" id="cEmail" name="email" required>
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="cPhone" class="form-label">Phone</label>
+              <input type="tel" class="form-control" id="cPhone" name="phone">
+            </div>
+            <div class="col-md-6">
+              <label for="cSubject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="cSubject" name="subject">
+            </div>
+            <div class="col-12">
+              <label for="cMessage" class="form-label">Message *</label>
+              <textarea class="form-control" id="cMessage" name="message" rows="4" required></textarea>
+              <div class="invalid-feedback">Please write your message.</div>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary px-5">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Map Embed Panel -->
+      <div class="col-12 mt-4">
+        <div class="ratio ratio-16x9">
+          <iframe src="<%=con[0].location%>" title="Our Office Location" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Bootstrap 5 form validation
+  (function() {
+    'use strict';
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e) {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  })();
+</script>
+
+
+<%-include("footer")%>

@@ -1,0 +1,76 @@
+
+<%-include("navbar.ejs")%>
+
+  <form action="/admin/login" method="post" class="border p-4 mb-4 shadow">
+    <h4>Admin Login</h4>
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="name" class="form-control" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" required>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-primary">Login</button>
+    </div>  
+</form>
+
+
+
+
+  <!-- Forgot Password -->
+  <form action="/admin/forgot-password" method="post" class="border p-4 mb-4 shadow">
+    <h4>Forgot Password</h4>
+    <div class="mb-3">
+      <label>Enter your Email</label>
+      <input type="email" class="form-control" name="email" required>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-warning">Save About Section</button>
+    </div>
+  </form>
+
+  <!-- Profile Management -->
+  <form action="/admin/update-profile" method="post" enctype="multipart/form-data" class="border p-4 mb-4 shadow">
+    <h4>Profile Management</h4>
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label>Profile Image</label>
+      <input type="file" class="form-control" name="profile_image">
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-success">Update Profile</button>
+    </div>
+  </form>
+
+  <!-- Role Management -->
+  <form action="/admin/assign-role" method="post" class="border p-4 shadow">
+    <h4>Role Management</h4>
+    <div class="mb-3">
+      <label>User Email</label>
+      <input type="email" class="form-control" name="user_email" required>
+    </div>
+    <div class="mb-3">
+      <label>Role</label>
+      <select class="form-control" name="role">
+        <option value="admin">Admin</option>
+        <option value="editor">Editor</option>
+        <option value="viewer">Viewer</option>
+      </select>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-dark">Assign Role</button>
+    </div>
+  </form>
+
+
+
+<%-include("footer.ejs")%>

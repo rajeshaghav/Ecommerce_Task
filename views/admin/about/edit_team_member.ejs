@@ -1,0 +1,29 @@
+<%-include("../navbar")%>
+<form action="/admin/about/save_team_member" method="post" enctype="multipart/form-data">
+  <div class="container mt-4 bg-white shadow p-4">
+    <h3>Edit Team Member</h3>
+    <div class="row">
+      <div class="col-md-4 mt-3">
+        <input type="hidden" name="id" id="<%-tdet[0].id%>">
+        Enter Title:
+        <input  type="text" name="title" class="form-control" value="<%= tdet && tdet[0] ? tdet[0].title : '' %>" >
+      </div>
+      <div class="col-md-4 mt-3">
+        Enter Sub-Title:
+        <textarea name="subtitle" class="editor"><%= tdet && tdet[0] ? tdet[0].subtitle : '' %></textarea>
+      </div>
+      <div class="col-md-4 mt-3">
+        Enter Photo:
+        <input type="file" name="photo" class="form-control">
+        <% if (tdet && tdet[0] && tdet[0].photo) { %>
+          <img src="/<%= tdet[0].photo %>" alt="Current photo" class="img-thumbnail mt-2" width="150"/>
+        <% } %>
+      </div>
+      <div class="col-md-12 mt-3 text-center">
+        <button class="btn btn-primary">Update Team Member</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%-include("../footer")%>

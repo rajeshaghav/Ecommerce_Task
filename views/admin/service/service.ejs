@@ -1,0 +1,59 @@
+<%-include("../navbar")%>
+<form action="/admin/service/save_service" method="post" enctype="multipart/form-data">
+
+    <div class="container mt-4 bg-white shadow p-4">
+    <h3>Add Our Solar Service</h3>
+    
+        <div class="row">
+            <div class="col-md-4 mt-3"> 
+                Enter Title:
+                <input type="text" name="title"  class="form-control">
+            </div> 
+            <div class="col-md-4 mt-3"> 
+                Enter Sub-Title:
+                <textarea type="text" name="subtitle" class="editor"></textarea>
+            </div><br> 
+            <div class="col-md-4 mt-3"> 
+                Enter Photo:
+                <input type="file" name="photo" class="form-control">
+            </div>
+             
+             <div class="col-md-12 mt-3 text-center "> 
+                <button class="btn btn-primary">Add Service</button>
+             </div>
+        </div>
+    </div>
+    </form>
+
+
+     <!-- Service list -->
+    <div class="container mt-4 shadow p-4">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>1.Our Solar Service </h3>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-stripped" border="1">
+                <th>Action</th>
+                <th>SrNo</th>
+                <th>Title</th>
+                <th>Sub-title</th>
+                <th>Photo</th>
+              </tr>
+            <%for (var i=0;i<slist.length;i++){ %>
+                <tr>
+                    <td>
+                        <a href="/admin/service/edit_service/<%-slist[i].id%>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                        <a href="/admin/service/delete_service/<%-slist[i].id%>" class="text-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                    <td><%-i+1%></td>
+                    <td><%-slist[i].title%></td>
+                    <td><%-slist[i].subtitle%></td>
+                    <td><img src="/<%=slist[i].photo%>" width="100px"></td>
+                </tr>
+            <%}%>    
+          </table>
+        </div>
+    </div>
+</div>
+<%-include("../footer")%>

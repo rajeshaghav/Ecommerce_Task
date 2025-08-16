@@ -1,0 +1,44 @@
+<%-include("../navbar")%>
+<form action="/admin/contact/update_contact" method="post">
+  <div class="container mt-4 bg-white shadow p-4">
+    <h3>Edit Contact</h3>
+    <div class="row">
+      <div class="col-md-4 mt-3">
+        <input type="hidden" name="id" value="<%= cdet[0].id %>">
+        Enter Phone:
+        <input type="number" name="phone" class="form-control" value="<%= cdet[0].phone %>">
+      </div>
+      <div class="col-md-4 mt-3">
+        Enter Email:
+        <input type="email" name="email" class="form-control" value="<%= cdet[0].email %>">
+      </div>
+      <div class="col-md-4 mt-3">
+        Enter Office Hour:
+        <input type="text" name="office_hour" class="form-control" value="<%= cdet[0].office_hour %>">
+      </div>
+      <div class="col-md-10 mt-3">
+        Enter Address:
+        <textarea name="address" class="editor form-control"><%= cdet[0].address %></textarea>
+      </div>
+      <div class="col-md-4 mt-3">
+          Enter location:
+           <input type="text" name="location" class="form-control" value="<%= cdet[0].location %>">
+       </div>
+      <div class="col-md-4 mt-3">
+        Enter Facebook:
+        <input type="text" name="facebook" class="form-control" value="<%= cdet[0].facebook %>">
+      </div>
+      <div class="col-md-4 mt-3">
+        Enter Twitter:
+        <input type="text" name="twitter" class="form-control" value="<%= cdet[0].twitter %>">
+      </div>
+      <div class="col-md-12 mt-4 text-center">
+        <button class="btn btn-primary">Update Contact</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<%-include("../footer")%>

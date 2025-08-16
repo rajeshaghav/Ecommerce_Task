@@ -1,0 +1,16 @@
+
+<%-include("navbar")%>
+<section id="privacy-policy" class="privacy-policy-section py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-4">Privacy Policy</h2>
+   
+     <% privacy_policy.forEach((item, i) => { %>
+    <h4><%-(i + 1) + '. ' +privacy_policy[i].heading%></h4>
+    <p>
+     <%-privacy_policy[i].subtitle%></p>
+   <% }) %>
+
+  </div>
+</section>
+
+<%-include("footer")%>
